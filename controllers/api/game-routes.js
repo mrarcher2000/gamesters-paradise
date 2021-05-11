@@ -49,4 +49,65 @@ router.get('/:query', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-})
+});
+
+
+router.post('/', (req,res) => {
+    Game.create({
+        id: req.body.id,
+        game_name: req.body.game_name,
+        release_year: req.body.release_year,
+        platforms: req.body.platforms,
+        developer: req.body.developer,
+        sales: req.body.sales
+    })
+        .then(dbGameData => {
+            res.json(dbGameData);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+router.put('/:id', (req, res) => {
+    Game.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbGameData => {
+            if (!dbGameData) {
+                res.status(404).json({ message: 'No game found? Check your request and try again!' });
+                return;
+            }
+
+            res.json(dbGameData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.delete('/:id', (req, res) => {
+    Game.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbGameData => {
+            if (!dbGameData) {
+                res.status(404).json({ message: 'No Game Data found? Check your request and try again!' });
+                return;
+            }
+
+            res.json(dbGameData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+
+module.exports = router;
