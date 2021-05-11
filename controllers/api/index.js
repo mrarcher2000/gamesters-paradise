@@ -1,13 +1,16 @@
-const seedUsers = require('./user-seeds');
-//we will add more seed things as we create them. most likely post, likes, comments, etc.
+const router = require('express').Router();
 
-const sequelize = require('..config/connection');
+const userRoutes = require('./user-routes.js');
+const postRoutes = require('./post-routes.js');
+const commentRoutes = require('./comment-routes.js');
+const gameRoutes = require('./game-routes.js')
 
-const seedAll = async () => {
-    await sequelize.sync({ force: true});
-    console.log('--------------');
-    await seedUsers();
-    console.log('--------------');
-};
 
-seedAll();
+router.use('/users', userRoutes);
+router.use('/posts', postRoutes);
+router.use('/comments', commentRoutes);
+router.use('/games', gameRoutes);
+
+
+
+module.exports = router;
