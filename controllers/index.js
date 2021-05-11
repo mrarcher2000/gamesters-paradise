@@ -1,12 +1,11 @@
 const router = require('express').Router();
 
-//will add more routes as the files get added. please name them {name}-routes.js
-const userRoutes = require('./api/user-routes.js');
-const postRoutes = require('./api/post-routes.js');
-
+const apiRoutes = require('./api');
+const homeRoutes = require('./home-routes.js');
+// const dashboardRoutes = require('/darhboard-routes.js');
 
 router.use('/', homeRoutes);
-router.use('/users', userRoutes);
-router.use('/posts', postRoutes);
+// router.use('/dashboard', dashboardRoutes);
+router.use('/api', apiRoutes);
 
 module.exports = router;
