@@ -102,6 +102,7 @@
   }
   .container-fluid {
     justify-content: center;
+    
   }
   .wrapper {
     width: 100%;
@@ -174,7 +175,9 @@
     display: block;
     margin: -1.5% 0 2% 0;
   }
-  
+  /* .form-control {
+    width: 80%;
+  } */
   .upvote-btn {
     background-color: #197d0f;
     transition: background-color .1s;
@@ -210,7 +213,7 @@
   .edit-post-form {
     margin-bottom: 5%;
   }
-  
+
   footer {
     border-top: 1px solid rgb(0, 0, 0);
     display: flex;

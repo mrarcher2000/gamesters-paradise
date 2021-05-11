@@ -1,19 +1,47 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-  </div>
-</div>
+ <div class="container">
+                <input type="text" id="myCustomSearchBox" class="form-control" placeholder="Search Anything Here">
+        </div>
+        <!--Container Ends Here-->
+     
+        <!--datatable div starts here-->
+        <div style="margin-top: 30px">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>Platform</th>
+                        <th>Sales</th>
+                        <th>Year</th>
+                        </tr>
+                </thead>
+     
+                <tbody>
+                    <tr>
+                        <td>Halo</td>
+                        <td>Blizzard</td>
+                        <td>PC</td>
+                        <td>50,000</td>
+                        <td>2020</td>
+     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script type="text/javascript">
+        dTable = $('#myTable').DataTable({
+            "bLengthChange": false, // this gives option for changing the number of records shown in the UI table
+            "lengthMenu": [4], // 4 records will be shown in the table
+            "columnDefs": [{
+                    "className": "dt-center",
+                    "targets": "_all"
+                } //columnDefs for align text to center
+            ],
+            "dom": "lrtip" //to hide default searchbox but search feature is not disabled hence customised searchbox can be made.
+        });
+     
+        $('#myCustomSearchBox').keyup(function() {
+            dTable.search($(this).val()).draw(); // this  is for customized searchbox with datatable search feature.
+        })
+    </script>
