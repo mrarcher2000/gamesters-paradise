@@ -54,7 +54,6 @@ router.get('/:query', (req, res) => {
 
 router.post('/', (req,res) => {
     Game.create({
-        id: req.body.id,
         game_name: req.body.game_name,
         release_year: req.body.release_year,
         platforms: req.body.platforms,
