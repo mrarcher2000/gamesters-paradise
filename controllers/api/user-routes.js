@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (res, res) => {
+router.get('/:id', (req, res) => {
     User.findOne({
         attrubutes: { exclude: ['password'] },
         where: {
