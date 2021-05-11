@@ -17,9 +17,19 @@
     font-family: sans-serif;
     color: #333;
   }
+  .center {
+    margin: auto;
+    width: 100%;
+    border: 3px solid #040700;
+    padding: 10px;
+    text-align: center;
+  }
   nav, a {
     padding-right: 20px;
     padding-left: 20px;
+  }
+  #post-url textarea {
+    resize: none;
   }
   
   
@@ -152,12 +162,12 @@
   .post {
     margin-bottom: 2%;
     line-height: 150%;
+    color: rgb(5, 0, 0);
   }
   
   .post .title span {
-    font-style: italic;
     font-size: 90%;
-    color: #7d7d7d;
+    color: rgb(37, 37, 37);
   }
   
   .edit-link {
@@ -210,4 +220,5 @@
     color: #ccc;
     background-color: #293341;
     
-  }
+  }  
+  
