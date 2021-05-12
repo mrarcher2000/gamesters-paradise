@@ -53,7 +53,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
 router.post('/', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.create({
@@ -66,6 +65,7 @@ router.post('/', (req, res) => {
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.loggedIn = true;
+
           res.json(dbUserData);
         });
       })
@@ -74,9 +74,6 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-
-
-
 
   router.post('/login', (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
@@ -89,21 +86,22 @@ router.post('/', (req, res) => {
         res.status(400).json({ message: 'No user with that email address!' });
         return;
       }
+
       const validPassword = dbUserData.checkPassword(req.body.password);
       if (!validPassword) {
         res.status(400).json({ message: 'Incorrect password!' });
         return;
       }
+
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
+
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
     });
   });
-
-
   
   router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
@@ -115,10 +113,7 @@ router.post('/', (req, res) => {
       res.status(404).end();
     }
   });
-
-
-
-  router.put('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     // pass in req.body instead to only update what's passed through
     User.update(req.body, {
@@ -140,8 +135,6 @@ router.post('/', (req, res) => {
       });
   });
 
-
-
   router.delete('/:id', (req, res) => {
     User.destroy({
       where: {
@@ -160,6 +153,5 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-  
 
 module.exports = router;
