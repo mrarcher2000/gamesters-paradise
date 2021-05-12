@@ -7,8 +7,8 @@
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
-      <label for="post-url">Post</label>
-      <input id="post-url" name="post-url" />
+      <label for="post-content">Post</label>
+      <input type="text" id="post-content" name="post-content" />
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
@@ -21,7 +21,7 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/mypost/edit/{{post.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>
