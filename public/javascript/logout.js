@@ -1,15 +1,19 @@
+$("#menu-toggle").click(function (e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
+
 async function logout() {
-  // add path to users logout
-  const response = await fetch("/api/users/logout", {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
+  const response = await fetch('/api/users/logout', {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' }
   });
 
   if (response.ok) {
-    document.location.replace("/");
+    document.location.replace('/');
   } else {
     alert(response.statusText);
   }
 }
-// add id from logout from handlebars html
-document.querySelector("#logout").addEventListener("click", logout);
+
+document.querySelector('#logout').addEventListener('click', logout);
