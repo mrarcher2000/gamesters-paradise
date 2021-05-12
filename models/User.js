@@ -51,9 +51,7 @@ User.init(
                 updatedUserData.password = await CryptoJS.AES.encrypt(updatedUserData, 'AMSS');
                 return updatedUserData;
             }
-        } 
-    },
-    {
+        }, 
         sequelize,
         timestamps: false,
         freezeTableName: true,

@@ -1,6 +1,6 @@
 async function logout() {
   // add path to users logout
-  const response = await fetch(" ", {
+  const response = await fetch("/api/users/logout", {
     method: "post",
     headers: { "Content-Type": "application/json" },
   });
@@ -12,4 +12,4 @@ async function logout() {
   }
 }
 // add id from logout from handlebars html
-document.querySelector(" ").addEventListener("click", logout);
+document.querySelector("#logout").addEventListener("click", logout);
