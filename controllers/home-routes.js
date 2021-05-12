@@ -21,7 +21,7 @@ router.get('/games', (req, res) => {
 
 
 // POST ROUTE
-router.get('/post', (req, res) => {
+router.get('/mypost', (req, res) => {
 
     if (!req.session.loggedIn) {
         res.redirect('/login');
