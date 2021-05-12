@@ -1,8 +1,9 @@
+<div class="fucking2">
 <section>
   <h2>Create New Post</h2>
 
   <form action="" method="POST">
-    		    
+    		  
     		    <div class="form-group">
     		        <label for="title">Title</label>
     		        <input type="text" class="form-control" name="title" />
@@ -25,19 +26,21 @@
     		    
     		</form>
 </section>
-
+</div>
 {{#if posts.length}}
+<div class="fucking">
 <section>
   <h2>Your Posts</h2>
   <ol>
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/mypost/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>
 </section>
+</div>
 {{/if}}
 
 <script src="/javascript/add-post.js"></script>
