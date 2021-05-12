@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connnection');
+const sequelize = require('../config/connection');
 const { Post, User, Comment, Like } = require('../models')
 const withAuth = require('../utils/auth');
 
@@ -12,7 +12,7 @@ router.get('/dashboard', withAuth, (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
+            'post_text',
             'title',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = like.post_id)'), 'like_count']
