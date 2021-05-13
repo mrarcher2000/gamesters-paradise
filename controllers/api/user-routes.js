@@ -75,7 +75,7 @@ router.post('/', (req, res) => {
       });
   });
 
- router.post('/login', (req, res) => {
+  router.post('/login', (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     User.findOne({
       where: {
@@ -113,8 +113,7 @@ router.post('/', (req, res) => {
       res.status(404).end();
     }
   });
-
- router.put('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     // pass in req.body instead to only update what's passed through
     User.update(req.body, {
@@ -136,7 +135,7 @@ router.post('/', (req, res) => {
       });
   });
 
-   router.delete('/:id', (req, res) => {
+  router.delete('/:id', (req, res) => {
     User.destroy({
       where: {
         id: req.params.id
@@ -154,5 +153,5 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-  
+
 module.exports = router;
