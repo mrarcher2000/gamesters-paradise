@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, Like } = require('../models')
 const withAuth = require('../utils/auth');
 
-router.get('/dashboard', withAuth, (req, res) => {
+router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('====================');
     Post.findAll({
@@ -14,8 +14,7 @@ router.get('/dashboard', withAuth, (req, res) => {
             'id',
             'post_text',
             'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             {
@@ -34,7 +33,7 @@ router.get('/dashboard', withAuth, (req, res) => {
     })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('dashboard', { posts, loggedIn: true});
+            res.render('dashboard', { posts, loggedIn: req.session.loggedIn});
         })
         .catch(err => {
             console.log(err);
@@ -48,8 +47,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'id',
             'post_text',
             'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             {
