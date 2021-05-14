@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection').Router();
-const { User, Post } = require('../../models');
+const { User, Post } = require('../models');
 
 // template for a user's data. Please cringe at the horrible name I made
 const userdata = [
