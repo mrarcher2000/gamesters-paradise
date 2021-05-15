@@ -7,7 +7,7 @@ const gameRoutes = require('./game-routes.js');
 
 
 router.use('/users', userRoutes);
-router.use('/posts', postRoutes);
+router.use('/post', postRoutes);
 router.use('/comments', commentRoutes);
 router.use('/games', gameRoutes);
 
