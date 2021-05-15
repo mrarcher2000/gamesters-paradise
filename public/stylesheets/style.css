@@ -9,7 +9,8 @@
   width: 500px;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -24,7 +25,8 @@ body, html {
   padding: 10px;
   text-align: center;
 }
-nav, a {
+nav,
+a {
   padding-right: 20px;
   padding-left: 20px;
 }
@@ -32,12 +34,11 @@ nav, a {
   resize: none;
 }
 
-
 a {
   text-decoration: none;
   color: #ffffff;
   font-weight: bold;
-  transition: color .1s;
+  transition: color 0.1s;
 }
 img1 {
   height: 65px;
@@ -50,9 +51,7 @@ img2 {
 img3 {
   height: 20px;
   width: 50px;
-  
 }
- 
 
 a:hover {
   color: #0277fc;
@@ -65,7 +64,7 @@ button {
   padding: 1%;
   color: white;
   font-weight: bold;
-  transition: background-color .1s;
+  transition: background-color 0.1s;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -83,13 +82,15 @@ button:hover {
   padding: 0;
 }
 
-textarea, input {
-  padding: .5%;
+textarea,
+input {
+  padding: 0.5%;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   outline: none;
   border: 1px solid #ffffff;
 }
@@ -116,7 +117,6 @@ form label {
   margin: 0 0 0 0;
   display: flex;
   flex-direction: column;
-
 }
 
 header {
@@ -126,7 +126,6 @@ header {
   align-items: center;
   padding: 0 1%;
   background-color: #293341;
-  
 }
 
 header h1 {
@@ -147,10 +146,9 @@ main {
   color: #fdfdfd;
   font-size: 100%;
   font-weight: bold;
-  transition: color .1s;
+  transition: color 0.1s;
   margin-left: 10px;
 }
-
 
 .btn-no-style:hover {
   background: none;
@@ -183,7 +181,7 @@ main {
 
 .upvote-btn {
   background-color: #197d0f;
-  transition: background-color .1s;
+  transition: background-color 0.1s;
 }
 
 .upvote-btn:hover {
@@ -205,8 +203,8 @@ main {
 
 .comment .meta {
   font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
+  margin-bottom: 0.5%;
+  opacity: 0.6;
 }
 
 .new-post-form input {
@@ -222,7 +220,6 @@ main {
 }
 .btn-primary:hover {
   background-color: #96ee8e;
-
 }
 div .fucking {
   padding-left: 20%;
@@ -245,5 +242,4 @@ footer {
   font-size: 110%;
   color: #ccc;
   background-color: #293341;
-  
 }
