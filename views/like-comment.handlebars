@@ -1,13 +1,14 @@
 
 {{> post-info post }}
 
+{{> comments post }}
 
 {{#if loggedIn}}
 <form class="comment-form">
+    <h4>Leave your own comment: </h4><br>
   <div>
     <textarea name="comment-body"></textarea>
   </div>
-
   <div>
     <button type="submit">add comment</button>
     <button type="button" class="upvote-btn">Like</button>
@@ -15,7 +16,6 @@
 </form>
 {{/if}}
 
-{{> comments }}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

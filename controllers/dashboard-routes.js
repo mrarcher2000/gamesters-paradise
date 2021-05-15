@@ -114,8 +114,8 @@ router.get('/post/:id', (req, res) => {
                 return;
             }
 
-            console.log(dbPostData);
             const post = dbPostData.get({plain: true});
+            console.log(post);
 
             res.render('like-comment', {
                 post,
