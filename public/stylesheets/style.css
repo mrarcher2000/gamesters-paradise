@@ -209,6 +209,10 @@ main {
   opacity: .6;
 }
 
+.underlinedComment {
+  border-bottom: 2px solid black;
+}
+
 .new-post-form input {
   width: 300px;
 }
