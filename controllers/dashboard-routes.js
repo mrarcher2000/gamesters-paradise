@@ -82,7 +82,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
 
 // LIKE & COMMENT
-router.get('/single-post/:id', (req, res) => {
+router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -114,8 +114,8 @@ router.get('/single-post/:id', (req, res) => {
                 return;
             }
 
-
-            const post = dbPostData.map(post => post.get({ plain: true }));
+            console.log(dbPostData);
+            const post = dbPostData.get({plain: true});
 
             res.render('like-comment', {
                 post,
