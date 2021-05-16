@@ -54,7 +54,10 @@ Post.init(
                 key: 'id'
             }
         },
-        
+        like_count: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
     },
     {
         sequelize,

@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
             'id',
             'post_text',
             'title',
-            'created_at'
+            'created_at',
+            'like_count'
         ],
         include: [
             {
@@ -44,7 +45,8 @@ router.get('/:id', (req, res) => {
             'id',
             'post_text',
             'title',
-            'created_at'
+            'created_at',
+            'like_count'
         ],
         include: [
             {
@@ -66,7 +68,8 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ message: 'Aw schucks, this post doesn\'t exist!' });
             return;
         }
-        res.json(dbPostData);
+        const posts = dbPostData.get({plain: true});
+        res.json(posts)
     })
     .catch(err => {
         console.log(err);
@@ -75,10 +78,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    
     Post.create({
         title: req.body.title,
         post_text: req.body.post_text,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        like_count: req.body.like_count
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
@@ -87,13 +92,43 @@ router.post('/', (req, res) => {
         });
 });
 
-router.put('/like', withAuth, (req, res) => {
-    Post.like({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
-        .then(updatedLikeData => res.json(updatedLikeData))
+router.get('/like/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['like_count']
+    }).then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'Nothing here' });
+                return;
+            }
+
+            const likes =  dbPostData.get({plain: true});
+            res.json(likes);
+        })
+})
+
+router.put('/like/:id', withAuth, (req, res) => {
+    Post.increment(
+        { like_count: +1 },
+        { where: {
+            id: req.params.id
+        }})
+        .then(dbPostData => {
+            if(!dbPostData) {
+                res.status(404).json({message: "That's not a post silly"});
+                return;
+            }
+
+            res.json(dbPostData);
+        })
         .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            }
+        })
 });
 
 router.put('/:id', withAuth, (req, res) => {

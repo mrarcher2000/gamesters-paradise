@@ -11,7 +11,8 @@ router.get('/', withAuth, (req, res) => {
             'id',
             'post_text',
             'title',
-            'created_at'
+            'created_at',
+            'like_count'
         ],
         order: [['created_at', 'DESC']],
         include: [
@@ -45,7 +46,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'id',
             'post_text',
             'title',
-            'created_at'
+            'created_at',
+            'like_count'
         ],
         include: [
             {
@@ -91,12 +93,14 @@ router.get('/post/:id', (req, res) => {
             'id',
             'title',
             'post_text',
-            'user_id'
+            'user_id',
+            'created_at',
+            'like_count'
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'user_id', 'post_id'],
+                attributes: ['id', 'comment_text', 'user_id', 'post_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
