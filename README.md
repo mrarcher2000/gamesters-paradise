@@ -1,17 +1,63 @@
 # Gamester's Paradise
-  ## Description
-  A social application for looking up video games to get their information. Users can also create posts and review games. 
+
   ## Table of Contents
   * [Installation](#installation)
+  * [Description](#description)
   * [Usage](#usage)
+  * [Tests](#tests)
+  * [Dependencies](#dependencies)
+  * [Deployment](#deployment)
   * [Credits](#credits)
   * [License](#license)
   ## Installation
-  npm i
+  git clone from SSH: git@github.com:mrarcher2000/gamesters-paradise.git
+  
+  npm i to install packages.
+  ## Description
+  A user interactive database that is all about video games.
+  
+  As a user that is interested in video games I want to be able to use a database to see what games have been recently released and on what platform so that I can review what I   have played or see reviews on what I have not yet played.
   ## Usage
-  Read the description, you ninny!
+  All users weather logged in or not will be greeted by our homepage which allows you to play a round of Meteors or navigate to our Dashboard, Game database or posts. Each user must create a log in or sign in to create a post or interact with other users posts. All users personal information is kept safe and hidden. 
+  ## Tests
+  Testing package used: Jestjs.io
+  https://jestjs.io/docs/getting-started
+  
+  Tests can be ran by entering npm test into your terminal.
+  
+  ![gamesters-paradise_testPass](https://user-images.githubusercontent.com/75024930/118415839-8ab2f900-b661-11eb-9235-4df6ebadbf33.JPG)
+  
+  all other tests were run through Insomnia.
+  
+  ## Dependencies
+  - bcrypt
+  https://www.npmjs.com/package/bcryptjs
+  - sequelize
+  https://www.npmjs.com/package/sequelize
+  - crypto.js
+  https://www.npmjs.com/package/crypto-js
+  - dotenv
+  https://www.npmjs.com/package/dotenv
+  - express.js
+  https://www.npmjs.com/package/express
+  - express-handlebars
+  https://www.npmjs.com/package/express-handlebars
+  - mysql2
+  https://www.npmjs.com/package/mysql2
+  - jestjs.io
+  https://jestjs.io/docs/getting-started
+
+  ## Deployment
+  
+  Gamesters Paradise was deployed through Heroku
+  https://gamesters-paradise.herokuapp.com/
+  
   ## Credits
-  Nicholas Moss, Martin Duarte, Sheldon Stevens
+  Archer Nicholson (mrarcher2000)
+  Martin Duarte (Duartem795)
+  Nicholas Moss (Nmoss3)
+  Sheldon Stevens (sstevens22)
+  
   ## License
   Unlicensed
   This is free and unencumbered software released into the public domain.
